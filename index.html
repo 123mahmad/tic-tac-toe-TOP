@@ -11,25 +11,50 @@
       grid-template-columns: 100px 100px 100px;
       grid-template-rows: 100px 100px 100px;
     }
-    .container div{
+    .container p{
       border: 1px solid black;
+      height: 100px;
     }
   </style>
   <script>
+
+    let Player = function(inName,inSymbol){
+      let name = inName;
+      let symbol = inSymbol;
+      let changeName = function(value){
+        this.name = value;
+      }
+      let changeSymbol = function(value){
+        this.symbol = value;
+      }
+      return {changeName,changeSymbol};
+    };
+
+    let gameBoard = (function(){
+      let boardSymbols = [`x`,`x`,`x`,`x`,`x`,`o`,`o`,`o`,`o`];
+      return {boardSymbols};
+    })();
     
+    let gameController = (function(){
+      let player1 = Player(`John`,`x`);
+      let player2 = Player(`Doe`,`o`);
+      console.log(gameBoard.boardSymbols[1]);
+      console.log(document.querySelector('.tile'));
+    })();
+
   </script>
 </head>
 <body>
   <div class="container">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <P class="tile" id="1A">D</P>
+    <P class="tile" id="1B"></P>
+    <P class="tile" id="1C"></P>
+    <P class="tile" id="2A"></P>
+    <P class="tile" id="2B"></P>
+    <P class="tile" id="2C"></P>
+    <P class="tile" id="3A"></P>
+    <P class="tile" id="3B"></P>
+    <P class="tile" id="3C"></P>
   </div>
 </body>
 </html>
